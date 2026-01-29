@@ -1,0 +1,17 @@
+:root {
+    --deep-purple:#46286e;
+    --medium-purple:#662485;
+    --light-purple:#b98fd6;
+    --white-purple:#f2edf5;
+    --white:#fdfef8;
+}
+
+p {
+    font-family: 'Montserrat';
+}
+
+h1
+h2
+h3 {
+    font-family: 'Poppins';
+}
