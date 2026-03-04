@@ -6,12 +6,126 @@
     <title>Relay For Life - Home Page</title>
     <link rel="stylesheet" href="Common/styles.css">
     <link rel="stylesheet" href="Navbar/styles.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="navbarcontainer"></div>
     <script src="Common/script.js"></script>
     <script type="module" src="Navbar/script.js"></script>
     <script src="script.js"></script>
+    <section id="hero-section">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="hero-title">Relay For Life</h1>
+        <p class="hero-subtitle">
+            Walking together. Fighting cancer. Celebrating survivors.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#countdown-section" class="hero-btn primary">Join The Walk</a>
+            <a href="#about-section" class="hero-btn secondary">Learn More</a>
+        </div>
+    </div>
+    <div class="hero-wave"></div>
+</section>
+
+<section id="updates-section" class="updates-dark">
+    <h2 class="countdown-title" style="width: 100%; text-align: center;">Hackathon Updates!</h2>
+    <div class="updates-viewport">
+        <button class="nav-btn left" aria-label="Scroll left">&lt;</button>
+        <div class="updates-mask">
+        <div class="updates-track" id="updates-track" role="list"></div>
+        </div>
+        <button class="nav-btn right" aria-label="Scroll right">&gt;</button>
+    </div>
+    </section>
+    <section id="reviews-section">
+
+<h2 class="countdown-title">What Participants Say</h2>
+
+<div class="reviews-container">
+
+<div class="review-card">
+<p>
+“Relay For Life is more than a walk — it’s a reminder that no one fights cancer alone.”
+</p>
+<h4>— Participant</h4>
+</div>
+
+<div class="review-card">
+<p>
+“The atmosphere through the night is unforgettable. Music, hope, and community.”
+</p>
+<h4>— Volunteer</h4>
+</div>
+
+<div class="review-card">
+<p>
+“Seeing survivors take the first lap was the most powerful moment of the event.”
+</p>
+<h4>— Student Organizer</h4>
+</div>
+
+</div>
+
+</section>
+<section id="about-section" class="info-section">
+
+<div class="info-section-container">
+
+<h2 class="secondary-heading-text">About Relay For Life</h2>
+
+<p>
+Relay For Life is a global movement dedicated to celebrating cancer survivors,
+remembering those lost, and fighting back against the disease. Teams gather to walk
+through the night in solidarity with millions of people affected by cancer.
+<br><br>
+
+Participants take turns walking around the track, symbolizing that cancer never
+sleeps — and neither does the fight against it. The event includes survivor laps,
+luminaria ceremonies, team activities, and fundraising initiatives supporting
+cancer research and patient care.
+<br><br>
+
+Relay For Life is more than an event. It is a community coming together to bring
+hope, awareness, and strength to the fight against cancer.
+</p>
+
+</div>
+
+<img src="images/bubble2.jpg" alt="Relay For Life event" class="about-us-image">
+
+</section>
+<section id="contact-section">
+
+<h2 class="countdown-title">Contact Us</h2>
+
+<div class="contact-container">
+
+<div class="contact-info">
+<h3>Relay For Life</h3>
+
+<p>Email: relayforlife@oakridge.in</p>
+<p>Phone: +91 98765 43210</p>
+<p>Oakridge International School<br>Bangalore, India</p>
+
+</div>
+
+<form class="contact-form">
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<textarea placeholder="Your Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+</section>
 </body>
 </html>

@@ -8,7 +8,6 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color:rgb(17, 17, 17);
   color: var(--text-color);
 }
 
@@ -30,7 +29,7 @@ body {
   transform: translateX(-50%);
   width: 100%;
   height: 60px;
-  background-color: #171717;
+  background-color: var(--main-color);
   padding: 0 2rem;
   display: flex;
   justify-content: center;
@@ -38,6 +37,7 @@ body {
   transition: all 0.4s ease;
   box-shadow: none;
   overflow: hidden; 
+
 }
 
 .nav-inner::before {
@@ -101,7 +101,7 @@ body {
 }
 
 .nav-inner a {
-  color: #fff;
+  color: var(--text-color);
   text-decoration: none;
   font-weight: bold;
 }
