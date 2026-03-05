@@ -1,10 +1,4 @@
-:root {
-    --main-color:#46286e;
-    --accent-color-1:#662485;
-    --accent-color-2:#b98fd6;
-    --white-purple:#f2edf5;
-    --text-color:#fdfef8;
-}
+
 
 p {
     font-family: 'Montserrat';
@@ -14,4 +8,29 @@ h1
 h2
 h3 {
     font-family: 'Poppins';
+}
+
+
+:root{
+    --bg-color:#f2edf5;
+    --main-color:#46286e;
+    --accent-color:#662485;
+    --sec-accent-color:#b98fd6;
+    --tert-accent-color:#d7b6ea;
+    --text-color:#1f1f1f;
+}
+
+body{
+    margin:0;
+    font-family:'Montserrat', system-ui;
+    background:var(--bg-color);
+    color:var(--text-color);
+}
+
+h1,h2,h3{
+    font-family:'Poppins',sans-serif;
+}
+
+section{
+    width:100%;
 }
