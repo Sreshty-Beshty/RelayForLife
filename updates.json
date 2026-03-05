@@ -1,0 +1,33 @@
+[
+{
+"title":"Registration Opens",
+"description":"Team registrations for Relay For Life 2026 are now officially open.",
+"date":"Jan 20, 2026",
+"image":"images/update1.jpg",
+"importance":2
+},
+
+{
+"title":"Survivor Ceremony Announced",
+"description":"The opening ceremony will feature our annual Survivor Lap to celebrate strength and resilience.",
+"date":"Feb 12, 2026",
+"image":"images/update2.jpg",
+"importance":3
+},
+
+{
+"title":"Fundraising Milestone",
+"description":"Participants have collectively raised over ₹3,00,000 for cancer research.",
+"date":"Mar 10, 2026",
+"image":"images/update3.jpg",
+"importance":1
+},
+
+{
+"title":"Volunteer Signups",
+"description":"Volunteer applications are open for logistics, medical support, and event coordination.",
+"date":"Mar 28, 2026",
+"image":"images/update4.jpg",
+"importance":2
+}
+]

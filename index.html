@@ -3,9 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Relay For Life - Home Page</title>
+    <link rel="stylesheet" href="Common/styles.css">
+    <link rel="stylesheet" href="Navbar/styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    RFL - Website in development ig
+    <div id="navbarcontainer"></div>
+    <script src="Common/script.js"></script>
+    <script type="module" src="Navbar/script.js"></script>
+    <script src="script.js"></script>
+    <section id="hero-section">
+    <div class="hero-content">
+        <p class="hero-subtitle">
+            Walking together. Fighting cancer. Celebrating survivors.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#countdown-section" class="hero-btn primary">Join The Walk</a>
+            <a href="#about-section" class="hero-btn secondary">Learn More</a>
+        </div>
+    </div>
+    <div class="hero-wave"></div>
+</section>
+<div class="section-fade"></div>
+<section id="countdown-section">
+
+<h2 class="countdown-title">Relay For Life Begins In</h2>
+
+<div id="countdown">
+
+<div class="time-box">
+<span id="days">00</span>
+<p>Days</p>
+</div>
+
+<div class="time-box">
+<span id="hours">00</span>
+<p>Hours</p>
+</div>
+
+<div class="time-box">
+<span id="minutes">00</span>
+<p>Minutes</p>
+</div>
+
+<div class="time-box">
+<span id="seconds">00</span>
+<p>Seconds</p>
+</div>
+
+</div>
+
+</section>
+<div class="section-fade"></div>
+<section id="updates-section" class="updates-dark">
+    <h2 class="countdown-title" style="width: 100%; text-align: center;">RFL Updates!</h2>
+    <div class="updates-viewport">
+        <button class="nav-btn left" aria-label="Scroll left">&lt;</button>
+        <div class="updates-mask">
+        <div class="updates-track" id="updates-track" role="list"></div>
+        </div>
+        <button class="nav-btn right" aria-label="Scroll right">&gt;</button>
+    </div>
+    </section>
+    
+<section id="about-section">
+
+<div class="about-container">
+
+<div class="about-text">
+
+<h2>About Relay For Life</h2>
+
+<p>
+Relay For Life is a global movement dedicated to celebrating cancer survivors,
+remembering those lost, and fighting back against the disease.
+</p>
+
+<p>
+Teams gather to walk through the night in solidarity with millions
+affected by cancer.
+</p>
+
+<a class="hero-btn primary" href="#register">
+Register Now
+</a>
+
+</div>
+
+<div class="about-image">
+
+<img src="images/bubble2.jpg" alt="Relay For Life Event">
+
+</div>
+
+</div>
+
+</section>
+<section id="reviews-section">
+
+<h2 class="section-title">What Participants Say</h2>
+
+<div class="reviews-scroll">
+<div class="reviews-track">
+
+<div class="review-card">
+<p>
+Relay For Life is more than a walk — it reminds us that no one fights cancer alone.
+</p>
+<h4>— Participant</h4>
+</div>
+
+<div class="review-card">
+<p>
+The atmosphere through the night is unforgettable. Music, hope, and community.
+</p>
+<h4>— Volunteer</h4>
+</div>
+
+<div class="review-card">
+<p>
+Watching survivors take the first lap was the most powerful moment of the entire event.
+</p>
+<h4>— Student Organizer</h4>
+</div>
+<div class="review-card">
+<p>
+Watching survivors take the first lap was the most powerful moment of the entire event.
+</p>
+<h4>— Student Organizer</h4>
+</div>
+<div class="review-card">
+<p>
+Watching survivors take the first lap was the most powerful moment of the entire event.
+</p>
+<h4>— Student Organizer</h4>
+</div>
+<div class="review-card">
+<p>
+Watching survivors take the first lap was the most powerful moment of the entire event.
+</p>
+<h4>— Student Organizer</h4>
+</div>
+</div>
+</div>
+
+</section>
+
+<section id="contact-section">
+
+<h2 class="countdown-title">Contact Us</h2>
+
+<div class="contact-container">
+
+<div class="contact-info">
+<h3>Relay For Life</h3>
+
+<p>Email: relayforlife@oakridge.in</p>
+<p>Phone: +91 98765 43210</p>
+<p>Oakridge International School<br>Bangalore, India</p>
+
+</div>
+
+<form class="contact-form">
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<textarea placeholder="Your Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+</section>
 </body>
 </html>
