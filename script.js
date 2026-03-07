@@ -34,43 +34,49 @@ async function init() {
   attachListeners();
 
   // Review section
-  const scrollSpeed = 1;
-  let scrollInterval;
+  // REVIEW AUTO SCROLLER
+function initReviewScroller() {
 
-  function setupCarousels(containerSelector, direction = 1) {
-    const containers = document.querySelectorAll(containerSelector);
-    return Array.from(containers).map(container => {
-      const carousel = container.querySelector('.carousel');
-      carousel.innerHTML += carousel.innerHTML;
-      const halfWidth = carousel.scrollWidth / 2;
-      if (direction === -1) {
+  const containers = document.querySelectorAll(".lazy-scrolling-container");
+
+  containers.forEach(container => {
+
+    const carousel = container.querySelector(".carousel");
+    if (!carousel) return;
+
+    // duplicate items for infinite scroll
+    carousel.innerHTML += carousel.innerHTML;
+
+    const halfWidth = carousel.scrollWidth / 2;
+    const direction = container.classList.contains("left") ? -1 : 1;
+    const speed = 0.7;
+
+    if (direction === -1) {
+      container.scrollLeft = halfWidth;
+    }
+
+    function animate() {
+
+      container.scrollLeft += speed * direction;
+
+      if (direction === 1 && container.scrollLeft >= halfWidth) {
+        container.scrollLeft = 0;
+      }
+
+      if (direction === -1 && container.scrollLeft <= 0) {
         container.scrollLeft = halfWidth;
       }
-      return { container, halfWidth, direction };
-    });
-  }
 
-  function startAutoScroll() {
-    const rightCarousels = setupCarousels('.lazy-scrolling-container.right', 1);
-    const leftCarousels  = setupCarousels('.lazy-scrolling-container.left', -1);
+      requestAnimationFrame(animate);
+    }
 
-    scrollInterval = setInterval(() => {
-      rightCarousels.forEach(c => {
-        c.container.scrollLeft += scrollSpeed;
-        if (c.container.scrollLeft >= c.halfWidth) {
-          c.container.scrollLeft = 0;
-        }
-      });
-      leftCarousels.forEach(c => {
-        c.container.scrollLeft -= scrollSpeed;
-        if (c.container.scrollLeft <= 0) {
-          c.container.scrollLeft = c.halfWidth;
-        }
-      });
-    }, 16);
-  }
+    animate();
 
-  startAutoScroll();
+  });
+
+}
+
+initReviewScroller();
 }
 
 function renderCards() {
