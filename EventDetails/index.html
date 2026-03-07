@@ -1,360 +1,613 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oakridge Relay For Life 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f2edf5;
+    --main: #46286e;
+    --accent: #662485;
+    --sec: #b98fd6;
+    --tert: #d7b6ea;
+    --text: #1f1f1f;
+  }
 
-    :root {
-      --bg-color: #f2edf5;
-      --main-color: #46286e;
-      --accent-color: #662485;
-      --sec-accent-color: #b98fd6;
-      --tert-accent-color: #d7b6ea;
-      --text-color: #1f1f1f;
-    }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      min-height: 100vh;
-      font-family: 'Montserrat', system-ui;
-      background: var(--bg-color);
-      color: var(--text-color);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+  }
 
-    /* ── Decorative background blobs ── */
-    .blobs {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.45;
-      animation: drift 12s ease-in-out infinite alternate;
-    }
-    .blob-1 {
-      width: 520px; height: 520px;
-      background: var(--tert-accent-color);
-      top: -180px; left: -120px;
-      animation-delay: 0s;
-    }
-    .blob-2 {
-      width: 380px; height: 380px;
-      background: var(--sec-accent-color);
-      bottom: -120px; right: -80px;
-      animation-delay: -4s;
-    }
-    .blob-3 {
-      width: 260px; height: 260px;
-      background: #c9a0e4;
-      top: 55%; left: 55%;
-      animation-delay: -7s;
-    }
-    @keyframes drift {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(30px, 20px) scale(1.06); }
-    }
+  /* ── NAVBAR ── */
+  .navbar-space {
+    height: 72px;
+    background: var(--main);
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 6px 30px rgba(70,40,110,0.2);
+  }
+  .navbar-space span {
+    color: var(--tert);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
 
-    /* ── Dot-grid texture overlay ── */
-    .grid-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 1;
-      background-image: radial-gradient(circle, var(--sec-accent-color) 1px, transparent 1px);
-      background-size: 32px 32px;
-      opacity: 0.18;
-      pointer-events: none;
-    }
+  /* ── BLOBS ── */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.35;
+    pointer-events: none;
+  }
 
-    /* ── Main card ── */
-    .card {
-      position: relative;
-      z-index: 10;
-      background: rgba(255,255,255,0.55);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1.5px solid rgba(185,143,214,0.35);
-      border-radius: 32px;
-      padding: 64px 72px 56px;
-      max-width: 780px;
-      width: calc(100% - 48px);
-      margin-top: 5%;
-      box-shadow:
-        0 4px 24px rgba(70,40,110,0.08),
-        0 24px 80px rgba(70,40,110,0.10),
-        inset 0 1px 0 rgba(255,255,255,0.8);
-      text-align: center;
-      animation: rise 0.9s cubic-bezier(.22,1,.36,1) both;
-    }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(36px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+  /* ── HERO ── */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5rem 2rem 7rem;
+    position: relative;
+    overflow: hidden;
+  }
 
-    /* ── Pill badge ── */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, var(--tert-accent-color), #e2c9f0);
-      color: var(--main-color);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 6px 18px;
-      border-radius: 99px;
-      margin-bottom: 28px;
-      border: 1px solid rgba(185,143,214,0.5);
-      animation: rise 0.9s 0.15s cubic-bezier(.22,1,.36,1) both;
-    }
-    .badge-dot {
-      width: 7px; height: 7px;
-      background: var(--accent-color);
-      border-radius: 50%;
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-    @keyframes pulse-dot {
-      0%,100% { transform: scale(1); opacity: 1; }
-      50%      { transform: scale(1.5); opacity: 0.6; }
-    }
+  .hero .blob-1 {
+    width: 500px; height: 500px;
+    background: var(--sec);
+    top: -100px; right: -120px;
+    animation: drift 10s ease-in-out infinite alternate;
+  }
+  .hero .blob-2 {
+    width: 350px; height: 350px;
+    background: var(--tert);
+    bottom: -60px; left: -80px;
+    animation: drift 13s ease-in-out infinite alternate-reverse;
+  }
+  .hero .blob-3 {
+    width: 220px; height: 220px;
+    background: var(--accent);
+    opacity: 0.18;
+    top: 40%; left: 10%;
+    animation: drift 8s ease-in-out infinite alternate;
+  }
 
-    /* ── Headline ── */
-    h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(2.8rem, 6vw, 4.4rem);
-      font-weight: 800;
-      line-height: 1.08;
-      color: var(--main-color);
-      margin-bottom: 16px;
-      animation: rise 0.9s 0.25s cubic-bezier(.22,1,.36,1) both;
-    }
-    h1 span {
-      background: linear-gradient(135deg, var(--accent-color) 0%, var(--sec-accent-color) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+  @keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(30px, 20px) scale(1.06); }
+  }
 
-    /* ── Subtext ── */
-    .sub {
-      font-size: 15px;
-      font-weight: 400;
-      color: #6b5880;
-      line-height: 1.7;
-      max-width: 460px;
-      margin: 0 auto 48px;
-      animation: rise 0.9s 0.35s cubic-bezier(.22,1,.36,1) both;
-    }
+  .hero-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(102,36,133,0.1);
+    padding: 0.4rem 1.1rem;
+    border-radius: 99px;
+    margin-bottom: 1.75rem;
+    display: inline-block;
+    animation: popIn 0.6s cubic-bezier(.34,1.56,.64,1) both;
+  }
 
-    /* ── Divider ── */
-    .divider {
-      width: 56px; height: 3px;
-      background: linear-gradient(90deg, var(--accent-color), var(--tert-accent-color));
-      border-radius: 99px;
-      margin: 0 auto 48px;
-      animation: rise 0.9s 0.3s cubic-bezier(.22,1,.36,1) both;
-    }
+  .hero-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(4.5rem, 13vw, 10rem);
+    line-height: 0.95;
+    color: var(--main);
+    letter-spacing: 0.01em;
+    animation: popIn 0.7s 0.1s cubic-bezier(.34,1.56,.64,1) both;
+  }
 
-    /* ── Countdown ── */
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 52px;
-      animation: rise 0.9s 0.45s cubic-bezier(.22,1,.36,1) both;
-    }
-    .time-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-    }
-    .time-box {
-      position: relative;
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(215,182,234,0.3));
-      border: 1.5px solid rgba(185,143,214,0.4);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow:
-        0 2px 8px rgba(70,40,110,0.07),
-        inset 0 1px 0 rgba(255,255,255,0.9);
-      overflow: hidden;
-      transition: transform 0.15s ease;
-    }
-    .time-box:hover { transform: translateY(-3px); }
-    .time-box::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.6) 0%, transparent 100%);
-      pointer-events: none;
-    }
-    .time-num {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.6rem;
-      font-weight: 700;
-      color: var(--main-color);
-      line-height: 1;
-      position: relative;
-      z-index: 1;
-    }
-    .time-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--sec-accent-color);
-    }
+  .hero-title .hollow {
+    display: block;
+    -webkit-text-stroke: 3px var(--accent);
+    color: transparent;
+  }
 
-    /* flip animation on digit change */
-    @keyframes flip {
-      0%   { transform: translateY(-8px); opacity: 0; }
-      100% { transform: translateY(0);     opacity: 1; }
-    }
-    .flip { animation: flip 0.3s ease forwards; }
+  .hero-subtitle {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text);
+    opacity: 0.7;
+    max-width: 460px;
+    line-height: 1.75;
+    animation: popIn 0.7s 0.2s cubic-bezier(.34,1.56,.64,1) both;
+  }
 
-    /* separators */
-    .sep {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--tert-accent-color);
-      align-self: center;
-      padding-bottom: 24px;
-      animation: blink 1.2s ease-in-out infinite;
-    }
-    @keyframes blink {
-      0%,100% { opacity: 1; }
-      50%      { opacity: 0.2; }
-    }
+  .hero-cta {
+    margin-top: 2.5rem;
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    padding: 1rem 2.5rem;
+    border-radius: 99px;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(102,36,133,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: popIn 0.7s 0.3s cubic-bezier(.34,1.56,.64,1) both;
+  }
+  .hero-cta:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 32px rgba(102,36,133,0.4);
+  }
 
-    /* ── Decorative corner accents ── */
-    .corner {
-      position: absolute;
-      width: 48px; height: 48px;
-      border-color: rgba(185,143,214,0.4);
-      border-style: solid;
-    }
-    .corner-tl { top: 18px; left: 18px; border-width: 2px 0 0 2px; border-radius: 6px 0 0 0; }
-    .corner-tr { top: 18px; right: 18px; border-width: 2px 2px 0 0; border-radius: 0 6px 0 0; }
-    .corner-bl { bottom: 18px; left: 18px; border-width: 0 0 2px 2px; border-radius: 0 0 0 6px; }
-    .corner-br { bottom: 18px; right: 18px; border-width: 0 2px 2px 0; border-radius: 0 0 6px 0; }
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.85) translateY(20px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
 
-    /* ── Responsive ── */
-    @media (max-width: 560px) {
-      .card { padding: 48px 28px 44px; border-radius: 24px; }
-      .time-box { width: 72px; height: 72px; }
-      .time-num { font-size: 2rem; }
-      .countdown { gap: 10px; }
-    }
-  </style>
-  <link rel="stylesheet" href="../Navbar/styles.css">
+  /* ── MARQUEE ── */
+  .marquee-band {
+    background: var(--main);
+    color: var(--tert);
+    padding: 1rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    border-radius: 32px;
+    margin: 0 1.5rem;
+  }
+  .marquee-inner { display: inline-block; animation: marquee 22s linear infinite; }
+  .marquee-inner span { margin: 0 2rem; opacity: 0.55; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
+  /* ── SHARED ── */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1080px; margin: 0 auto; }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(102,36,133,0.09);
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border-radius: 99px;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+    color: var(--main);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── DETAILS ── */
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .detail-card {
+    background: #fff;
+    border-radius: 28px;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 4px 24px rgba(70,40,110,0.07);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .detail-card::after {
+    content: '';
+    position: absolute;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: var(--tert);
+    opacity: 0.25;
+    bottom: -30px; right: -30px;
+  }
+  .detail-card:hover { transform: translateY(-5px) rotate(-0.5deg); box-shadow: 0 14px 40px rgba(70,40,110,0.13); }
+
+  .detail-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+  .detail-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sec);
+    margin-bottom: 0.35rem;
+  }
+  .detail-value {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: var(--main);
+    line-height: 1.1;
+  }
+  .detail-sub {
+    font-size: 0.82rem;
+    color: var(--text);
+    opacity: 0.55;
+    margin-top: 0.35rem;
+    font-weight: 400;
+  }
+
+  /* ── STAT STRIP ── */
+  .stat-strip {
+    background: var(--main);
+    padding: 4.5rem 2rem;
+    text-align: center;
+    border-radius: 40px;
+    margin: 0 1.5rem;
+  }
+  .stat-strip .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 2rem;
+  }
+  .stat-num {
+    font-family: 'Fredoka One', cursive;
+    font-size: 5rem;
+    color: var(--tert);
+    line-height: 1;
+  }
+  .stat-desc {
+    font-size: 0.78rem;
+    color: rgba(215,182,234,0.6);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+    margin-top: 0.4rem;
+  }
+
+  /* ── ACTIVITIES ── */
+  .activities-section { background: transparent; }
+
+  .activities-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 3rem;
+    justify-content: center;
+  }
+
+  .activity-pill {
+    background: #fff;
+    border-radius: 99px;
+    padding: 1rem 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    box-shadow: 0 4px 18px rgba(70,40,110,0.08);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    cursor: default;
+  }
+  .activity-pill:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 10px 32px rgba(70,40,110,0.15);
+    background: var(--tert);
+  }
+
+  .pill-emoji { font-size: 1.5rem; }
+  .pill-time {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--sec);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.1rem;
+  }
+  .pill-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.25rem;
+    color: var(--main);
+    line-height: 1;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--main);
+    padding: 6rem 2rem;
+    color: #fff;
+    border-radius: 40px 40px 0 0;
+    margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-section .blob-c1 {
+    width: 400px; height: 400px;
+    background: var(--accent);
+    opacity: 0.2;
+    top: -100px; right: -100px;
+    animation: drift 12s ease-in-out infinite alternate;
+  }
+  .contact-section .blob-c2 {
+    width: 300px; height: 300px;
+    background: var(--sec);
+    opacity: 0.15;
+    bottom: -80px; left: -60px;
+    animation: drift 9s ease-in-out infinite alternate-reverse;
+  }
+  .contact-section .section-label { color: var(--tert); background: rgba(255,255,255,0.1); }
+  .contact-section .section-title { color: #fff; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    position: relative;
+  }
+  @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+  .contact-blurb {
+    font-size: 1rem;
+    line-height: 1.85;
+    opacity: 0.72;
+    font-weight: 400;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 1.1rem 1.4rem;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .contact-item:hover { background: rgba(255,255,255,0.14); transform: translateX(4px); }
+  .contact-item-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .contact-item-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--tert);
+    margin-bottom: 0.15rem;
+  }
+  .contact-item-val { font-size: 0.9rem; opacity: 0.9; font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #1a0d2e;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    color: rgba(215,182,234,0.3);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(24px) scale(0.97); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
+</style>
+<link rel="stylesheet" href="../Common/styles.css">
+    <link rel="stylesheet" href="../Navbar/styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="navbarcontainer"></div>
+
+<!-- NAVBAR -->
+<div id="navbarcontainer"></div>
     <script src="../Common/script.js"></script>
     <script type="module" src="../Navbar/script.js"></script>
     <script src="script.js"></script>
-  <div class="blobs">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <p class="hero-eyebrow">🎗️ American Cancer Society Presents</p>
+  <h1 class="hero-title">
+    Oakridge
+    <span class="hollow">Relay</span>
+    For Life
+  </h1>
+  <p class="hero-subtitle">One night. One community. One mission. Walk, celebrate, and fight back against cancer together.</p>
+  <a href="#activities" class="hero-cta">See What's Happening ✨</a>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee-inner">
+    <span>WALK FOR A CURE</span><span>🎗️</span>
+    <span>CELEBRATE SURVIVORS</span><span>✨</span>
+    <span>REMEMBER LOVED ONES</span><span>🕯️</span>
+    <span>FIGHT BACK</span><span>💜</span>
+    <span>OAKRIDGE STRONG</span><span>🌟</span>
+    <span>WALK FOR A CURE</span><span>🎗️</span>
+    <span>CELEBRATE SURVIVORS</span><span>✨</span>
+    <span>REMEMBER LOVED ONES</span><span>🕯️</span>
+    <span>FIGHT BACK</span><span>💜</span>
+    <span>OAKRIDGE STRONG</span><span>🌟</span>
   </div>
-  <div class="grid-overlay"></div>
+</div>
 
-  <div class="card">
-    <div class="corner corner-tl"></div>
-    <div class="corner corner-tr"></div>
-    <div class="corner corner-bl"></div>
-    <div class="corner corner-br"></div>
-
-    <div class="badge">
-      <span class="badge-dot"></span>
-      Something big is brewing
-    </div>
-
-    <h1>We're almost<br/><span>ready for you.</span></h1>
-
-    <div class="divider"></div>
-
-    <p class="sub">Good things take time — and we're putting in the work. Stay tuned for something worth the wait.</p>
-
-    <div class="countdown">
-      <div class="time-block">
-        <div class="time-box"><span class="time-num" id="days">00</span></div>
-        <span class="time-label">Days</span>
+<!-- EVENT DETAILS -->
+<section id="details">
+  <div class="container">
+    <p class="section-label reveal">Event Details</p>
+    <h2 class="section-title reveal">The Big Night 🌙</h2>
+    <div class="details-grid">
+      <div class="detail-card reveal">
+        <span class="detail-icon">📅</span>
+        <p class="detail-label">Date</p>
+        <p class="detail-value">TBD 2025</p>
+        <p class="detail-sub">Date dropping soon — stay tuned!</p>
       </div>
-      <div class="sep">:</div>
-      <div class="time-block">
-        <div class="time-box"><span class="time-num" id="hours">00</span></div>
-        <span class="time-label">Hours</span>
+      <div class="detail-card reveal">
+        <span class="detail-icon">🕕</span>
+        <p class="detail-label">Time</p>
+        <p class="detail-value">6 PM – 6 AM</p>
+        <p class="detail-sub">12 straight hours of magic</p>
       </div>
-      <div class="sep">:</div>
-      <div class="time-block">
-        <div class="time-box"><span class="time-num" id="minutes">00</span></div>
-        <span class="time-label">Minutes</span>
+      <div class="detail-card reveal">
+        <span class="detail-icon">📍</span>
+        <p class="detail-label">Location</p>
+        <p class="detail-value">Oakridge Track</p>
+        <p class="detail-sub">Oakridge High School, Eugene, OR</p>
       </div>
-      <div class="sep">:</div>
-      <div class="time-block">
-        <div class="time-box"><span class="time-num" id="seconds">00</span></div>
-        <span class="time-label">Seconds</span>
+      <div class="detail-card reveal">
+        <span class="detail-icon">🎟️</span>
+        <p class="detail-label">Registration</p>
+        <p class="detail-value">Free to Join</p>
+        <p class="detail-sub">Every dollar raised makes a difference</p>
       </div>
     </div>
-
-
   </div>
+</section>
 
-  <script>
-    // Set launch date to exactly 3 days from now
-    const launch = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000);
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="container">
+    <div class="stat-item reveal">
+      <p class="stat-num">12</p>
+      <p class="stat-desc">Hours of walking</p>
+    </div>
+    <div class="stat-item reveal">
+      <p class="stat-num">∞</p>
+      <p class="stat-desc">Hope raised</p>
+    </div>
+    <div class="stat-item reveal">
+      <p class="stat-num">1</p>
+      <p class="stat-desc">Community united</p>
+    </div>
+    <div class="stat-item reveal">
+      <p class="stat-num">0</p>
+      <p class="stat-desc">Reasons to sit this out</p>
+    </div>
+  </div>
+</div>
 
-    const pad = n => String(n).padStart(2, '0');
+<!-- ACTIVITIES -->
+<section class="activities-section" id="activities">
+  <div class="container">
+    <p class="section-label reveal">What's Going Down</p>
+    <h2 class="section-title reveal">Activities & Fun 🎉</h2>
+    <div class="activities-flow">
 
-    function animateFlip(el, newVal) {
-      if (el.textContent !== newVal) {
-        el.classList.remove('flip');
-        void el.offsetWidth; // reflow
-        el.textContent = newVal;
-        el.classList.add('flip');
+      <div class="activity-pill reveal">
+        <span class="pill-emoji">🏁</span>
+        <div>
+          <p class="pill-time">6:00 PM</p>
+          <p class="pill-name">Opening Ceremony</p>
+        </div>
+      </div>
+
+      <div class="activity-pill reveal">
+        <span class="pill-emoji">⛺</span>
+        <div>
+          <p class="pill-time">All Night</p>
+          <p class="pill-name">Team Campsites</p>
+        </div>
+      </div>
+
+      <div class="activity-pill reveal">
+        <span class="pill-emoji">🕯️</span>
+        <div>
+          <p class="pill-time">After Dark</p>
+          <p class="pill-name">Luminaria Ceremony</p>
+        </div>
+      </div>
+
+      <div class="activity-pill reveal">
+        <span class="pill-emoji">🎮</span>
+        <div>
+          <p class="pill-time">Ongoing</p>
+          <p class="pill-name">Games & Activities</p>
+        </div>
+      </div>
+
+      <div class="activity-pill reveal">
+        <span class="pill-emoji">🍕</span>
+        <div>
+          <p class="pill-time">All Night</p>
+          <p class="pill-name">Food & Snacks</p>
+        </div>
+      </div>
+
+      <div class="activity-pill reveal">
+        <span class="pill-emoji">🌅</span>
+        <div>
+          <p class="pill-time">6:00 AM</p>
+          <p class="pill-name">Closing Ceremony</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact-section">
+
+<h2 class="countdown-title">Contact Us</h2>
+
+<div class="contact-container">
+
+<div class="contact-info">
+<h3>Relay For Life</h3>
+
+<p>Email: tanushree_thiyag</p>
+<p>Phone: +91 98765 43210</p>
+<p>Oakridge International School<br>Bangalore, India</p>
+
+</div>
+
+<form class="contact-form">
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<textarea placeholder="Your Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+</section>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        observer.unobserve(e.target);
       }
-    }
-
-    function tick() {
-      const now  = Date.now();
-      const diff = Math.max(0, launch - now);
-
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000)  / 60000);
-      const s = Math.floor((diff % 60000)    / 1000);
-
-      animateFlip(document.getElementById('days'),    pad(d));
-      animateFlip(document.getElementById('hours'),   pad(h));
-      animateFlip(document.getElementById('minutes'), pad(m));
-      animateFlip(document.getElementById('seconds'), pad(s));
-    }
-
-    tick();
-    setInterval(tick, 1000);
-
-  </script>
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

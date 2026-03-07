@@ -755,3 +755,20 @@ footer p {
 .contact-form button:hover {
   background: #b98fd6;
 }
+
+.image-card {
+  flex: 0 0 auto;
+  background-color: var(--bg-color);
+  border: 4px solid var(--accent-color);
+  border-radius: 30px;
+  overflow: hidden;        /* ADD THIS */
+  line-height: 0;          /* ADD THIS - removes gap under img */
+}
+
+.image-card img {
+  display: block;
+  width: 480px;            /* fixed width */
+  height: 300px;           /* ADD fixed height */
+  object-fit: cover;       /* ADD THIS - fills without distortion */
+  border-radius: 26px;
+}
