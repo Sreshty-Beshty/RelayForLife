@@ -1,164 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relay For Life - Home Page</title>
-    <link rel="stylesheet" href="Common/styles.css">
-    <link rel="stylesheet" href="Navbar/styles.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relay For Life — Oakridge Bangalore</title>
+    <link rel="stylesheet" href="Common/styles.css" />
+    <link rel="stylesheet" href="Navbar/styles.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div id="navbarcontainer"></div>
-    <script src="../Common/script.js"></script>
-    <script type="module" src="../Navbar/script.js"></script>
+    <script src="Common/script.js"></script>
+    <script type="module" src="Navbar/script.js"></script>
     <script src="script.js"></script>
+
+    <!-- ── HERO ── -->
     <section id="hero-section">
-    <div class="hero-content">
+      <div class="hero-eyebrow">Oakridge International School, Bangalore</div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="hero-title-line">Relay</span>
+          <span class="hero-title-line italic">For Life</span>
+        </h1>
         <p class="hero-subtitle">
-            Walking together. Fighting cancer. Celebrating survivors.
+          Walking together through the night — celebrating survivors,<br />
+          honouring those we've lost, and fighting back against cancer.
         </p>
-
         <div class="hero-buttons">
-            <a href="#countdown-section" class="hero-btn primary">Join The Walk</a>
-            <a href="#about-section" class="hero-btn secondary">Learn More</a>
+          <a href="#countdown-section" class="hero-btn primary"
+            >Join The Walk</a
+          >
+          <a href="#about-section" class="hero-btn secondary">Learn More</a>
         </div>
+      </div>
+      <div class="hero-wave"></div>
+    </section>
+
+    <!-- ── STATS ── -->
+    <div class="stats-strip">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-val">185+</span>
+          <span class="stat-desc">Countries Participating</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-val">₹1 Lakh+</span>
+          <span class="stat-desc">Raised Last Year</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-val">Overnight</span>
+          <span class="stat-desc">Continuous Relay</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-val">100%</span>
+          <span class="stat-desc">For Cancer Research</span>
+        </div>
+      </div>
     </div>
-    <div class="hero-wave"></div>
-</section>
-<div class="section-fade"></div>
-<section id="countdown-section">
 
-<h2 class="countdown-title">Relay For Life Begins In</h2>
+    <div class="section-fade"></div>
 
-<div id="countdown">
+    <!-- ── COUNTDOWN ── -->
+    <section id="countdown-section">
+      <h2 class="countdown-title">Relay For Life Begins In</h2>
+      <div id="countdown">
+        <div class="time-box">
+          <span id="days">00</span>
+          <p>Days</p>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <p>Hours</p>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <p>Minutes</p>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <p>Seconds</p>
+        </div>
+      </div>
+    </section>
 
-<div class="time-box">
-<span id="days">00</span>
-<p>Days</p>
-</div>
+    <div class="section-fade"></div>
 
-<div class="time-box">
-<span id="hours">00</span>
-<p>Hours</p>
-</div>
-
-<div class="time-box">
-<span id="minutes">00</span>
-<p>Minutes</p>
-</div>
-
-<div class="time-box">
-<span id="seconds">00</span>
-<p>Seconds</p>
-</div>
-
-</div>
-
-</section>
-<div class="section-fade"></div>
-<section id="updates-section" class="updates-dark">
-    <h2 class="countdown-title" style="width: 100%; text-align: center;">RFL Updates!</h2>
-    <div class="updates-viewport">
+    <!-- ── UPDATES ── -->
+    <section id="updates-section" class="updates-dark">
+      <h2 class="countdown-title" style="width: 100%; text-align: center">
+        RFL Updates
+      </h2>
+      <div class="updates-viewport">
         <button class="nav-btn left" aria-label="Scroll left">&lt;</button>
         <div class="updates-mask">
-        <div class="updates-track" id="updates-track" role="list"></div>
+          <div class="updates-track" id="updates-track" role="list"></div>
         </div>
         <button class="nav-btn right" aria-label="Scroll right">&gt;</button>
-    </div>
+      </div>
     </section>
-    
-<section id="about-section">
 
-<div class="about-container">
+    <!-- ── ABOUT ── -->
+    <section id="about-section">
+      <div class="about-container">
+        <div class="about-text">
+          <p class="about-label">Our Mission</p>
+          <h2>More Than<br /><em>a Walk.</em></h2>
+          <p>
+            Relay For Life is the world's largest fundraising movement for
+            cancer research — a night-long community event where teams walk in
+            solidarity, because cancer never sleeps, and neither do we.
+          </p>
+          <p>
+            At Oakridge Bangalore, our chapter is entirely student-led, driven
+            by the Student Council and hundreds of passionate volunteers.
+          </p>
+          <a class="hero-btn primary" href="#countdown-section">Register Now</a>
+        </div>
+        <div class="about-image">
+          <img src="images/img_36.jpg" alt="Relay For Life Event" />
+        </div>
+      </div>
+    </section>
 
-<div class="about-text">
+    <!-- ── REVIEWS ── -->
+    <section id="reviews-section">
+      <h2 class="section-title">What Participants Say</h2>
+      <div class="lazy-scrolling-container right">
+        <div class="carousel">
+          <div class="review-card">
+            <p>
+              "Relay For Life is more than a walk — it reminds us that no one
+              fights cancer alone."
+            </p>
+            <h4>— Participant</h4>
+          </div>
+          <div class="review-card">
+            <p>
+              "The atmosphere through the night is unforgettable. Music, hope,
+              and community."
+            </p>
+            <h4>— Volunteer</h4>
+          </div>
+          <div class="review-card">
+            <p>
+              "Walking in the luminaria ceremony gave me chills. Such a powerful
+              tribute."
+            </p>
+            <h4>— Survivor</h4>
+          </div>
+          <div class="review-card">
+            <p>
+              "Relay For Life is more than a walk — it reminds us that no one
+              fights cancer alone."
+            </p>
+            <h4>— Participant</h4>
+          </div>
+          <div class="review-card">
+            <p>
+              "The atmosphere through the night is unforgettable. Music, hope,
+              and community."
+            </p>
+            <h4>— Volunteer</h4>
+          </div>
+          <div class="review-card">
+            <p>
+              "Walking in the luminaria ceremony gave me chills. Such a powerful
+              tribute."
+            </p>
+            <h4>— Survivor</h4>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<h2>About Relay For Life</h2>
+    <!-- ── CONTACT ── -->
+    <section id="contact-section">
+      <h2 class="contact-title">Contact Us</h2>
 
-<p>
-Relay For Life is a global movement dedicated to celebrating cancer survivors,
-remembering those lost, and fighting back against the disease.
-</p>
-
-<p>
-Teams gather to walk through the night in solidarity with millions
-affected by cancer.
-</p>
-
-<a class="hero-btn primary" href="#register">
-Register Now
-</a>
-
-</div>
-
-<div class="about-image">
-
-<img src="images/img6.jpeg" alt="Relay For Life Event">
-
-</div>
-
-</div>
-
-</section>
-<!-- <section id="reviews-section">
-
-<h2 class="section-title">What Participants Say</h2>
-
-<div class="lazy-scrolling-container right">
-<div class="carousel">
-
-<div class="review-card">
-<p>
-Relay For Life is more than a walk — it reminds us that no one fights cancer alone.
-</p>
-<h4>— Participant</h4>
-</div>
-
-<div class="review-card">
-<p>
-The atmosphere through the night is unforgettable. Music, hope, and community.
-</p>
-<h4>— Volunteer</h4>
-</div><div class="review-card">
-<p>
-Relay For Life is more than a walk — it reminds us that no one fights cancer alone.
-</p>
-<h4>— Participant</h4>
-</div>
-
-<div class="review-card">
-<p>
-The atmosphere through the night is unforgettable. Music, hope, and community.
-</p>
-<h4>— Volunteer</h4>
-</div><div class="review-card">
-<p>
-Relay For Life is more than a walk — it reminds us that no one fights cancer alone.
-</p>
-<h4>— Participant</h4>
-</div>
-
-<div class="review-card">
-<p>
-The atmosphere through the night is unforgettable. Music, hope, and community.
-</p>
-<h4>— Volunteer</h4>
-</div>
-
-
-</div>
-</div>
-
-</section> -->
-<section id="contact-section">
-  <h2 class="countdown-title">Contact Us</h2>
-
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; padding: 2rem 0;">
-    <p style="color: #ccc; font-size: 1rem; margin: 0;">Oakridge International School, Bangalore</p>
-    <p style="color: #ccc; font-size: 1rem; margin: 0;">+91 98765 43210</p>
-    <a href="mailto:tanushree.tyagi@oakridge.in" class="hero-btn primary">✉ Email Us</a>
-  </div>
-</section>
-</body>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+          padding: 2rem 0;
+        "
+      >
+        <p style="color: #ccc; font-size: 1rem; margin: 0">
+          Oakridge International School, Bangalore
+        </p>
+        <p style="color: #ccc; font-size: 1rem; margin: 0">+91 98765 43210</p>
+        <a href="mailto:tanushree.tyagi@oakridge.in" class="hero-btn idk"
+          >✉ Email Us</a
+        >
+      </div>
+    </section>
+  </body>
 </html>
