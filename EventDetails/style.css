@@ -98,3 +98,26 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.20);
 }
+
+
+.hero-btn.primary {
+  background: var(--accent-color);
+  color: white;
+  box-shadow: 0 4px 20px rgba(102, 36, 133, .4);
+}
+
+.hero-btn.primary:hover {
+  background: var(--main-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(102, 36, 133, .5);
+}
+
+.hero-btn {
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all .25s;
+  letter-spacing: 0.3px;
+}
