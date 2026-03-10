@@ -245,7 +245,7 @@ nav {
   background: var(--card-bg);
   border-radius: 20px;
   border: 1.5px solid var(--border);
-  padding: 36px 24px;
+  padding: 36px 0px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(70, 40, 110, 0.06);
   transition:
@@ -253,22 +253,6 @@ nav {
     box-shadow 0.25s;
   position: relative;
   overflow: hidden;
-}
-
-.stat-card::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--accent-color-1),
-    var(--accent-color-2)
-  );
-  border-radius: 3px 3px 0 0;
 }
 
 .stat-card:hover {
