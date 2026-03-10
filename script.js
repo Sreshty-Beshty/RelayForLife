@@ -528,3 +528,25 @@ document.addEventListener("DOMContentLoaded", () => {
   UpdateCountdown();
   setInterval(UpdateCountdown, 1000);
 });
+
+
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const name    = document.getElementById('contact-name').value.trim();
+  const email   = document.getElementById('contact-email').value.trim();
+  const message = document.getElementById('contact-message').value.trim();
+
+  if (!name || !email || !message) {
+    alert('Please fill in all fields before sending.');
+    return;
+  }
+
+  const to      = 'tanushree.tyagi@oakridge.in';
+  const subject = encodeURIComponent(`RFL Message from ${name}`);
+  const body    = encodeURIComponent(
+    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+  );
+
+  window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+});
