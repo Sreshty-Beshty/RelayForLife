@@ -171,3 +171,29 @@ section {
   transition: all 0.25s;
   letter-spacing: 0.3px;
 }
+
+.school-logo-badge {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 12px;
+    padding: 8px 14px;
+    box-shadow: 0 2px 8px rgba(27, 58, 102, 0.12), 0 8px 24px rgba(27, 58, 102, 0.10);
+    border: 1px solid rgba(180, 235, 245, 0.50);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.school-logo-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(47, 204, 213, 0.20);
+}
+
+.school-logo-badge img {
+    height: 36px;
+    width: auto;
+    display: block;
+}

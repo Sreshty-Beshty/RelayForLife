@@ -1,1 +1,404 @@
 @import url(Common\style.css);
+:root {
+--bg: #f0fafd;
+--main: #1b3a66;
+--accent: #1e96a6;
+--sec: #2fccd5;
+--tert: #b5ebf5;
+--yellow: #fdb813;
+--purple: #662485;
+--purple-light: #d7b6ea;
+--text: #1f1f1f;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background: var(--bg);
+color: var(--text);
+font-family: "Nunito", sans-serif;
+overflow-x: hidden;
+}
+
+/* ── NAVBAR ── */
+.navbar-space {
+height: 72px;
+background: var(--main);
+display: flex;
+align-items: center;
+padding: 0 2rem;
+position: sticky;
+top: 0;
+z-index: 100;
+border-radius: 0 0 24px 24px;
+box-shadow: 0 6px 30px rgba(27, 58, 102, 0.25);
+}
+.navbar-space span {
+color: var(--tert);
+font-family: "Space Mono", monospace;
+font-size: 0.72rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+opacity: 0.6;
+}
+
+/* ── BLOBS ── */
+.blob {
+position: absolute;
+border-radius: 50%;
+filter: blur(60px);
+opacity: 0.35;
+pointer-events: none;
+}
+
+/* ── HERO ── */
+.hero {
+min-height: 92vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 5rem 2rem 7rem;
+position: relative;
+overflow: hidden;
+}
+
+.hero .blob-1 {
+width: 500px;
+height: 500px;
+background: var(--sec);
+top: -100px;
+right: -120px;
+animation: drift 10s ease-in-out infinite alternate;
+}
+.hero .blob-2 {
+width: 350px;
+height: 350px;
+background: var(--tert);
+bottom: -60px;
+left: -80px;
+animation: drift 13s ease-in-out infinite alternate-reverse;
+}
+.hero .blob-3 {
+width: 220px;
+height: 220px;
+background: var(--yellow);
+opacity: 0.2;
+top: 40%;
+left: 10%;
+animation: drift 8s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+from {
+    transform: translate(0, 0) scale(1);
+}
+to {
+    transform: translate(30px, 20px) scale(1.06);
+}
+}
+
+.hero-eyebrow {
+font-family: "Space Mono", monospace;
+font-size: 0.72rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(--purple);
+background: rgba(102, 36, 133, 0.1);
+padding: 0.4rem 1.1rem;
+border-radius: 99px;
+margin-bottom: 1.75rem;
+display: inline-block;
+animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.hero-title {
+font-family: "Fredoka One", cursive;
+font-size: clamp(4.5rem, 13vw, 10rem);
+line-height: 0.95;
+color: var(--main);
+letter-spacing: 0.01em;
+animation: popIn 0.7s 0.1s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.hero-title .hollow {
+display: block;
+-webkit-text-stroke: 3px var(--purple);
+color: transparent;
+}
+
+.hero-subtitle {
+margin-top: 2rem;
+font-size: 1.1rem;
+font-weight: 400;
+color: var(--text);
+opacity: 0.7;
+max-width: 460px;
+line-height: 1.75;
+animation: popIn 0.7s 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.hero-cta {
+margin-top: 2.5rem;
+display: inline-block;
+background: var(--yellow);
+color: var(--main);
+font-family: "Nunito", sans-serif;
+font-weight: 800;
+font-size: 1rem;
+letter-spacing: 0.05em;
+padding: 1rem 2.5rem;
+border-radius: 99px;
+text-decoration: none;
+box-shadow: 0 6px 24px rgba(253, 184, 19, 0.45);
+transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+animation: popIn 0.7s 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.hero-cta:hover {
+transform: translateY(-3px) scale(1.03);
+box-shadow: 0 10px 32px rgba(253, 184, 19, 0.55);
+}
+
+@keyframes popIn {
+from {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+}
+to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+}
+
+/* ── MARQUEE ── */
+.marquee-band {
+background: var(--main);
+color: var(--tert);
+padding: 1rem 0;
+overflow: hidden;
+white-space: nowrap;
+font-family: "Fredoka One", cursive;
+font-size: 1.4rem;
+letter-spacing: 0.1em;
+border-radius: 32px;
+margin: 0 1.5rem;
+}
+.marquee-inner {
+display: inline-block;
+animation: marquee 22s linear infinite;
+}
+.marquee-inner span {
+margin: 0 2rem;
+opacity: 0.55;
+}
+@keyframes marquee {
+from {
+    transform: translateX(0);
+}
+to {
+    transform: translateX(-50%);
+}
+}
+
+/* ── SHARED ── */
+section {
+padding: 6rem 2rem;
+}
+.container {
+max-width: 1080px;
+margin: 0 auto;
+}
+
+.section-label {
+font-family: "Space Mono", monospace;
+font-size: 0.68rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(--purple);
+background: rgba(102, 36, 133, 0.09);
+display: inline-block;
+padding: 0.3rem 0.9rem;
+border-radius: 99px;
+margin-bottom: 1rem;
+}
+
+.section-title {
+font-family: "Fredoka One", cursive;
+font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+color: var(--main);
+line-height: 1;
+margin-bottom: 1.5rem;
+}
+
+/* ── DETAILS ── */
+.details-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+gap: 1.5rem;
+margin-top: 3rem;
+}
+
+.detail-card {
+background: #fff;
+border-radius: 28px;
+padding: 2rem 1.75rem;
+box-shadow: 0 4px 24px rgba(27, 58, 102, 0.08);
+transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+position: relative;
+overflow: hidden;
+}
+.detail-card::after {
+content: "";
+position: absolute;
+width: 120px;
+height: 120px;
+border-radius: 50%;
+background: var(--tert);
+opacity: 0.25;
+bottom: -30px;
+right: -30px;
+}
+.detail-card:hover {
+transform: translateY(-5px) rotate(-0.5deg);
+box-shadow: 0 14px 40px rgba(27, 58, 102, 0.15);
+}
+
+.detail-icon {
+font-size: 2rem;
+margin-bottom: 0.75rem;
+display: block;
+}
+.detail-label {
+font-family: "Space Mono", monospace;
+font-size: 0.62rem;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--purple);
+margin-bottom: 0.35rem;
+}
+.detail-value {
+font-family: "Fredoka One", cursive;
+font-size: 1.8rem;
+color: var(--main);
+line-height: 1.1;
+}
+.detail-sub {
+font-size: 0.82rem;
+color: var(--text);
+opacity: 0.55;
+margin-top: 0.35rem;
+font-weight: 400;
+}
+
+/* ── STAT STRIP ── */
+.stat-strip {
+background: var(--main);
+padding: 4.5rem 2rem;
+text-align: center;
+border-radius: 40px;
+margin: 0 1.5rem;
+}
+.stat-strip .container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+gap: 2rem;
+}
+.stat-num {
+font-family: "Fredoka One", cursive;
+font-size: 5rem;
+color: var(--yellow);
+line-height: 1;
+}
+.stat-desc {
+font-size: 0.78rem;
+color: rgba(181, 235, 245, 0.7);
+letter-spacing: 0.1em;
+text-transform: uppercase;
+font-family: "Space Mono", monospace;
+margin-top: 0.4rem;
+}
+
+/* ── ACTIVITIES ── */
+.activities-section {
+background: transparent;
+}
+
+.activities-flow {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+margin-top: 3rem;
+justify-content: center;
+}
+
+.activity-pill {
+background: #fff;
+border-radius: 99px;
+padding: 1rem 1.75rem;
+display: flex;
+align-items: center;
+gap: 0.85rem;
+box-shadow: 0 4px 18px rgba(27, 58, 102, 0.08);
+transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+cursor: default;
+}
+.activity-pill:hover {
+transform: translateY(-4px) scale(1.04);
+box-shadow: 0 10px 32px rgba(27, 58, 102, 0.18);
+background: var(--tert);
+}
+
+.pill-emoji {
+font-size: 1.5rem;
+}
+.pill-time {
+font-family: "Space Mono", monospace;
+font-size: 0.6rem;
+color: var(--purple);
+letter-spacing: 0.12em;
+text-transform: uppercase;
+margin-bottom: 0.1rem;
+}
+.pill-name {
+font-family: "Fredoka One", cursive;
+font-size: 1.25rem;
+color: var(--main);
+line-height: 1;
+}
+
+/* ── FOOTER ── */
+.footer {
+background: #0d1e38;
+padding: 2rem;
+text-align: center;
+font-family: "Space Mono", monospace;
+font-size: 0.62rem;
+color: rgba(181, 235, 245, 0.35);
+letter-spacing: 0.15em;
+text-transform: uppercase;
+}
+
+/* ── REVEAL ── */
+.reveal {
+opacity: 0;
+transform: translateY(24px) scale(0.97);
+transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+.reveal.visible {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
